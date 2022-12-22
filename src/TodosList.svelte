@@ -4,8 +4,7 @@
   let todolists = [];
 
   const deleteATodo = (event) => {
-    const index = todolists.indexOf(event.detail.todoValue);
-    todolists.splice(index, 1);
+    todolists.splice(event.detail.todoIndex, 1);
     todolists = todolists;
   };
 
@@ -15,6 +14,6 @@
 </script>
 
 <AddTodo on:add={addATodo} />
-{#each todolists as todoValue}
-  <Todo on:delete={deleteATodo} {todoValue} />
+{#each todolists as todoValue, indx}
+  <Todo on:delete={deleteATodo} {todoValue} {indx} />
 {/each}

@@ -3,15 +3,14 @@
   const dispatch = createEventDispatcher();
 
   export let todoValue = "";
+  export let indx;
   let isChecked = false;
 
   function checkTodo() {
     isChecked = !isChecked;
   }
   function deleteTodo() {
-    console.log("todovalue : " + todoValue);
-    dispatch("delete", { todoValue: todoValue });
-    //dispatch("delete");
+    dispatch("delete", { todoIndex: indx });
   }
 </script>
 
