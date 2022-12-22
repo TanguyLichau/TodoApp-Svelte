@@ -1,22 +1,28 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+
   export let todoValue = "";
-  let todo = {
-    text: todoValue,
-    isChecked: false,
-  };
+  let isChecked = false;
 
   function checkTodo() {
-    todo.isChecked = !todo.isChecked;
+    isChecked = !isChecked;
+  }
+  function deleteTodo() {
+    console.log("todovalue : " + todoValue);
+    dispatch("delete", { todoValue: todoValue });
+    //dispatch("delete");
   }
 </script>
 
 <div>
-  {#if todo.isChecked}
-    <p class="checked">{todo.text}</p>
+  {#if isChecked}
+    <p class="checked">{todoValue}</p>
   {:else}
-    <p class="notchecked">{todo.text}</p>
+    <p class="notchecked">{todoValue}</p>
   {/if}
   <button on:click={checkTodo}> check</button>
+  <button on:click={deleteTodo}> destroy</button>
 </div>
 
 <style>

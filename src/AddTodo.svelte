@@ -6,18 +6,19 @@
 
   function getTodoValue(event) {
     if (event.key === "Enter") {
-      console.log(value);
-      dispatch("favorite", { value });
+      dispatch("add", { value });
+      const todoInput = (document.getElementById("inp").value = "");
     }
   }
 </script>
 
 <div class="input">
   <input
+    id="inp"
     on:keyup={getTodoValue}
     bind:value
     type="text"
-    placeholder="Enter your name"
+    placeholder="Add a task.."
   />
 </div>
 
