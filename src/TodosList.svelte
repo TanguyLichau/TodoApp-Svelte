@@ -2,6 +2,7 @@
   import Todo from "./Todo.svelte";
   import AddTodo from "./AddTodo.svelte";
   import MoreActions from "./MoreActions.svelte";
+  import { element } from "svelte/internal";
   let todolists = [];
   let isAllChecked = false;
 
@@ -14,23 +15,21 @@
     todolists = [...todolists, { ...event.detail }];
   };
 
-  const checkAllTodos = (event) => {
-    //console.log(JSON.stringify(todolists));
+  const checkAllTodos = () => {
     if (!isAllChecked) {
-      todolists.forEach((item, index) => {
-        if (item.isChecked === false) {
-          todolists[index].isChecked = true;
+      todolists.forEach((element) => {
+        if (!element.isChecked) {
+          element.isChecked = true;
         }
       });
-      todolists = todolists;
       isAllChecked = true;
     } else {
-      todolists.forEach((item, index) => {
-        todolists[index].isChecked = false;
+      todolists.forEach((element) => {
+        element.isChecked = false;
       });
-      todolists = todolists;
       isAllChecked = false;
     }
+    todolists = todolists;
   };
   const deleteAllTodos = (event) => {};
   // A FAIRE : AJOUT FILTRE CHECK PAS CHECK / AJOUT EDIT / AJOUT CHECK ALL ET REMOVE ALL CHECK
