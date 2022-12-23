@@ -2,8 +2,11 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
+  let checkedAll = true;
+
   function checkAllTodos() {
     dispatch("checkAll");
+    checkedAll = !checkedAll;
   }
 
   function deleteAllTodosDone() {
@@ -12,7 +15,9 @@
 </script>
 
 <div id="buttons">
-  <button on:click={checkAllTodos}>Check all</button>
+  <button on:click={checkAllTodos}
+    >{checkedAll ? "Check all" : "Uncheck All"}</button
+  >
   <button on:click={deleteAllTodosDone}>Delete done</button>
 </div>
 

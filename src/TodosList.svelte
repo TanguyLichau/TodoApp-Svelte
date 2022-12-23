@@ -7,6 +7,7 @@
   let isAllChecked = false;
 
   const deleteATodo = (event) => {
+    console.log(JSON.stringify(todolists));
     todolists.splice(event.detail.todoIndex, 1);
     todolists = todolists;
   };
@@ -33,6 +34,8 @@
   };
   const deleteAllTodos = (event) => {};
   // A FAIRE : AJOUT FILTRE CHECK PAS CHECK / AJOUT EDIT / AJOUT CHECK ALL ET REMOVE ALL CHECK
+  //BUG : UNCHECK TODO LORSQU'ON DESTROY N'iMPORTE
+  // UNCHECK TODO LOrsQU4ON AJOUTE
 </script>
 
 <AddTodo on:add={addATodo} />
