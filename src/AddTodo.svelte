@@ -3,10 +3,16 @@
   const dispatch = createEventDispatcher();
 
   let value = "";
+  let obj = {
+    todoValue: null,
+    index: null,
+    isChecked: false,
+  };
 
   function getTodoValue(event) {
     if (event.key === "Enter") {
-      dispatch("add", { value });
+      obj.todoValue = document.getElementById("inp").value;
+      dispatch("add", obj);
       const todoInput = (document.getElementById("inp").value = "");
     }
   }
@@ -16,7 +22,6 @@
   <input
     id="inp"
     on:keyup={getTodoValue}
-    bind:value
     type="text"
     placeholder="Add a task.."
   />

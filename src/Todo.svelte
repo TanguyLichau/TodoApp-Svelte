@@ -4,7 +4,7 @@
 
   export let todoValue = "";
   export let indx;
-  let isChecked = false;
+  export let isChecked = false;
 
   function checkTodo() {
     isChecked = !isChecked;
