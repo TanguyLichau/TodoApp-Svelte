@@ -2,6 +2,7 @@
   import Todo from "./Todo.svelte";
   import AddTodo from "./AddTodo.svelte";
   import MoreActions from "./MoreActions.svelte";
+  import FilterTodos from "./FilterTodos.svelte";
   let todolists = [];
   let isAllChecked = false;
 
@@ -44,6 +45,7 @@
 </script>
 
 <AddTodo on:add={addATodo} />
+<FilterTodos />
 {#each todolists as todo, indx}
   <Todo
     on:delete={deleteATodo}
