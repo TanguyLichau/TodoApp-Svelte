@@ -31,7 +31,6 @@
     todolists = todolists;
   };
   const deleteAllTodos = () => {
-    console.log(JSON.stringify(todolists));
     todolists = todolists.filter(function (a) {
       return a.isChecked !== true;
     });
@@ -41,7 +40,7 @@
   const updateCheck = (currentTodo) => {
     currentTodo.isChecked = !currentTodo.isChecked;
   };
-  // A FAIRE : AJOUT FILTRE CHECK PAS CHECK / AJOUT EDIT / AJOUT CHECK ALL ET REMOVE ALL CHECK
+  // A FAIRE : AJOUT FILTRE CHECK PAS CHECK / AJOUT EDIT / STYLE / AJOUT NOMBRE DE TODO COMPLETES
 </script>
 
 <AddTodo on:add={addATodo} />
