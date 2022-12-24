@@ -13,6 +13,12 @@ This project is a basic Todo App, it is my first project using Svelte.
 - Unmark all completed todos
 - Delete all completed todos
 
+## To Add
+
+- Edit a todo
+- Status bar to show number of todos completed out of all todos
+- CSS styling
+
 ## Get started
 
 _Note that you will need to have [Node.js](https://nodejs.org) installed._
