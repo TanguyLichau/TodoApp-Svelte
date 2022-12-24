@@ -35,6 +35,7 @@
     todolists = todolists.filter(function (a) {
       return a.isChecked !== true;
     });
+    isAllChecked = false;
   };
 
   const updateCheck = (currentTodo) => {

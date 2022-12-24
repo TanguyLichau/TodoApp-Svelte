@@ -11,6 +11,7 @@
 
   function deleteAllTodosDone() {
     dispatch("deleteAll");
+    checkedAll = true;
   }
 </script>
 
