@@ -2,12 +2,10 @@
   import Todo from "./Todo.svelte";
   import AddTodo from "./AddTodo.svelte";
   import MoreActions from "./MoreActions.svelte";
-  import { element } from "svelte/internal";
   let todolists = [];
   let isAllChecked = false;
 
   const deleteATodo = (event) => {
-    console.log(JSON.stringify(todolists));
     todolists.splice(event.detail.todoIndex, 1);
     todolists = todolists;
   };
@@ -32,16 +30,24 @@
     }
     todolists = todolists;
   };
-  const deleteAllTodos = (event) => {};
+  const deleteAllTodos = () => {
+    console.log(JSON.stringify(todolists));
+    todolists = todolists.filter(function (a) {
+      return a.isChecked !== true;
+    });
+  };
+
+  const updateCheck = (currentTodo) => {
+    currentTodo.isChecked = !currentTodo.isChecked;
+  };
   // A FAIRE : AJOUT FILTRE CHECK PAS CHECK / AJOUT EDIT / AJOUT CHECK ALL ET REMOVE ALL CHECK
-  //BUG : UNCHECK TODO LORSQU'ON DESTROY N'iMPORTE
-  // UNCHECK TODO LOrsQU4ON AJOUTE
 </script>
 
 <AddTodo on:add={addATodo} />
 {#each todolists as todo, indx}
   <Todo
     on:delete={deleteATodo}
+    on:check={updateCheck(todo)}
     todoValue={todo.todoValue}
     isChecked={todo.isChecked}
     {indx}

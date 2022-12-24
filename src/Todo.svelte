@@ -8,6 +8,7 @@
 
   function checkTodo() {
     isChecked = !isChecked;
+    dispatch("check");
   }
   function deleteTodo() {
     dispatch("delete", { todoIndex: indx });
