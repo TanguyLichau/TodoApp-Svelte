@@ -5,6 +5,7 @@
   import FilterTodos from "./FilterTodos.svelte";
   let todolists = [];
   let isAllChecked = false;
+  let filter = "all";
 
   const deleteATodo = (event) => {
     todolists.splice(event.detail.todoIndex, 1);
@@ -41,12 +42,19 @@
   const updateCheck = (currentTodo) => {
     currentTodo.isChecked = !currentTodo.isChecked;
   };
-  // A FAIRE : AJOUT FILTRE CHECK PAS CHECK / AJOUT EDIT / STYLE / AJOUT NOMBRE DE TODO COMPLETES
+
+  const filterTodos = (filter, todos) =>
+    filter === "active"
+      ? todos.filter((t) => !t.isChecked)
+      : filter === "completed"
+      ? todos.filter((t) => t.isChecked)
+      : todos;
+  // A FAIRE : AJOUT EDIT / STYLE / AJOUT NOMBRE DE TODO COMPLETES
 </script>
 
 <AddTodo on:add={addATodo} />
-<FilterTodos />
-{#each todolists as todo, indx}
+<FilterTodos bind:filter />
+{#each filterTodos(filter, todolists) as todo, indx}
   <Todo
     on:delete={deleteATodo}
     on:check={updateCheck(todo)}
