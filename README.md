@@ -2,9 +2,20 @@
 
 This project is a basic Todo App, it is my first project using Svelte.
 
-_Note that you will need to have [Node.js](https://nodejs.org) installed._
+## Features
+
+- See list of todos
+- Create a todo
+- Delete a todo
+- Mark todo as completed
+- Filter todos by status : all todos, active todos or completed todos
+- Mark all todos as completed
+- Unmark all completed todos
+- Delete all completed todos
 
 ## Get started
+
+_Note that you will need to have [Node.js](https://nodejs.org) installed._
 
 Install the dependencies...
 
