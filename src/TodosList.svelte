@@ -3,6 +3,7 @@
   import AddTodo from "./AddTodo.svelte";
   import MoreActions from "./MoreActions.svelte";
   import FilterTodos from "./FilterTodos.svelte";
+  import TodoStatus from "./TodoStatus.svelte";
   let todolists = [];
   let isAllChecked = false;
   let filter = "all";
@@ -53,6 +54,7 @@
 </script>
 
 <AddTodo on:add={addATodo} />
+<TodoStatus {todolists} />
 <FilterTodos bind:filter />
 {#each filterTodos(filter, todolists) as todo, indx}
   <Todo
