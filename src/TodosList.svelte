@@ -42,6 +42,7 @@
 
   const updateCheck = (currentTodo) => {
     currentTodo.isChecked = !currentTodo.isChecked;
+    todolists = todolists;
   };
 
   const filterTodos = (filter, todos) =>
