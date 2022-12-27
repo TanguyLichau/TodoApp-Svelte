@@ -61,7 +61,7 @@
   <Todo
     on:delete={deleteATodo}
     on:check={updateCheck(todo)}
-    todoValue={todo.todoValue}
+    bind:todoValue={todo.todoValue}
     isChecked={todo.isChecked}
     {indx}
   />
