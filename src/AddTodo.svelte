@@ -2,7 +2,6 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
-  let value = "";
   let obj = {
     todoValue: null,
     index: null,

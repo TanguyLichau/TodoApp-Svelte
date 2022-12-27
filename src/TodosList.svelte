@@ -51,7 +51,6 @@
       : filter === "completed"
       ? todos.filter((t) => t.isChecked)
       : todos;
-  // A FAIRE : AJOUT EDIT / STYLE / AJOUT NOMBRE DE TODO COMPLETES
 </script>
 
 <AddTodo on:add={addATodo} />
