@@ -2,6 +2,8 @@
 
 This project is a basic Todo App, it is my first project using Svelte.
 
+![My Image](images/Screenshot.PNG)
+
 ## Features
 
 - See list of todos
